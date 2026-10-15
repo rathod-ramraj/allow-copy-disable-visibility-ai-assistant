@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Habilitar o clique direito - permitir copiar e selecionar",
+    "description": "O título da extensão, visto na galeria e na página de extensões"
+  },
+  "desc": {
+    "message": "Ativar menus de contexto em sites protegidos. Desbloquear o menu do clique direito. Destacar e permitir a opção de cópia para todas as páginas funciona novamente.",
+    "description": "A descrição da extensão, vista na galeria e na página de extensões"
+  }
+}

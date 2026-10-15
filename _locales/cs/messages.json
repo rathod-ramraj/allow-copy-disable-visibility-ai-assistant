@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Povolit pravé tlačítko - povolit kopírovat a vybrat",
+    "description": "Název rozšíření, viditelný v galerii a na stránce rozšíření"
+  },
+  "desc": {
+    "message": "Povolit kontextové nabídky na chráněných webových stránkách. Odblokovat nabídku pravého tlačítka. Zvýrazněte a povolte možnost kopírování pro všechny stránky znovu.",
+    "description": "Popis rozšíření, viditelný v galerii a na stránce rozšíření"
+  }
+}

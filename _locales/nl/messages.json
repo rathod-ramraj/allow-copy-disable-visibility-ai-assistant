@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Rechtermuisknop inschakelen - kopiëren en selecteren toestaan",
+    "description": "De titel van de extensie, te zien in de galerij en op de extensiepagina"
+  },
+  "desc": {
+    "message": "Contextmenu's inschakelen op beveiligde websites. Rechtermuisknopmenu deblokkeren. Markeer en sta kopieeroptie toe voor alle pagina's werkt opnieuw.",
+    "description": "De beschrijving van de extensie, te zien in de galerij en op de extensiepagina"
+  }
+}

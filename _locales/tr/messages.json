@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Sağ tıklamayı etkinleştir - kopyalama ve seçmeye izin ver",
+    "description": "Uzantının başlığı, galeride ve uzantılar sayfasında görülür"
+  },
+  "desc": {
+    "message": "Korumalı web sitelerinde bağlam menülerini etkinleştirin. Sağ tıklama menüsünün engelini kaldırın. Tüm sayfalar için kopyalama seçeneğine izin verin ve vurgulayın.",
+    "description": "Uzantının açıklaması, galeride ve uzantılar sayfasında görülür"
+  }
+}

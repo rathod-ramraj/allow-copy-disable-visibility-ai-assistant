@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Activer le clic droit - autoriser la copie et la sélection",
+    "description": "Le titre de l'extension, visible dans la galerie et la page des extensions"
+  },
+  "desc": {
+    "message": "Activer les menus contextuels sur les sites Web protégés. Débloquer le menu clic droit. Mettre en surbrillance et autoriser l'option de copie pour toutes les pages fonctionne à nouveau.",
+    "description": "La description de l'extension, visible dans la galerie et la page des extensions"
+  }
+}

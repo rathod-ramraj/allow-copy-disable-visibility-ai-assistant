@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Włącz prawy przycisk - zezwalaj na kopiowanie i wybieranie",
+    "description": "Tytuł rozszerzenia, widoczny w galerii i na stronie rozszerzeń"
+  },
+  "desc": {
+    "message": "Włącz menu kontekstowe na chronionych stronach internetowych. Odblokuj menu prawym przyciskiem myszy. Zaznacz i zezwalaj na opcję kopiowania dla wszystkich stron, które znowu działają.",
+    "description": "Opis rozszerzenia, widoczny w galerii i na stronie rozszerzeń"
+  }
+}

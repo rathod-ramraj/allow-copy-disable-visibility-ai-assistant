@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Leisti dešiniuoju pelės mygtuku - leisti kopijuoti ir pasirinkti",
+    "description": "Plėtinio pavadinimas, matomas galerijoje ir plėtinių puslapyje"
+  },
+  "desc": {
+    "message": "Įjungti kontekstinius meniu apsaugotose svetainėse. Atrakinti dešiniojo pelės mygtuko meniu. Pažymėti ir leisti kopijavimo parinktį visiems puslapiams veikia vėl.",
+    "description": "Plėtinio aprašymas, matomas galerijoje ir plėtinių puslapyje"
+  }
+}

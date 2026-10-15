@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Rechtsklick erlauben - Kopieren und Auswählen erlauben",
+    "description": "Der Titel der Erweiterung, sichtbar in der Galerie und auf der Erweiterungsseite"
+  },
+  "desc": {
+    "message": "Kontextmenüs auf geschützten Websites aktivieren. Rechtsklick-Menü freigeben. Hervorheben und Kopieroption für alle Seiten funktioniert wieder.",
+    "description": "Die Beschreibung der Erweiterung, sichtbar in der Galerie und auf der Erweiterungsseite"
+  }
+}

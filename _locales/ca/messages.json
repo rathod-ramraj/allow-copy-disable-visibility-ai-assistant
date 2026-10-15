@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Permetre el botó dret - permetre copiar i seleccionar",
+    "description": "El títol de l'extensió, visible a la galeria i a la pàgina d'extensions"
+  },
+  "desc": {
+    "message": "Habilita menús contextuals en llocs web protegits. Desbloqueja el menú del botó dret. Ressalta i permet l'opció de copiar per a totes les pàgines que tornin a funcionar.",
+    "description": "La descripció de l'extensió, visible a la galeria i a la pàgina d'extensions"
+  }
+}

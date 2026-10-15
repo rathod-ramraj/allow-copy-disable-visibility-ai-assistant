@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Aktivera högerklick - tillåt kopiering och markering",
+    "description": "Tilläggets titel, syns i galleriet och på tilläggssidan"
+  },
+  "desc": {
+    "message": "Aktivera snabbmenyer på skyddade webbplatser. Lås upp högerklicksmenyn. Markera och tillåt kopieringsalternativ för alla sidor fungerar igen.",
+    "description": "Tilläggets beskrivning, syns i galleriet och på tilläggssidan"
+  }
+}

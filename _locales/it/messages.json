@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Abilita il clic destro - consenti la copia e la selezione",
+    "description": "Il titolo dell'estensione, visibile nella galleria e nella pagina delle estensioni"
+  },
+  "desc": {
+    "message": "Abilita i menu contestuali sui siti web protetti. Sblocca il menu del clic destro. Evidenzia e consenti l'opzione di copia per tutte le pagine funziona di nuovo.",
+    "description": "La descrizione dell'estensione, visibile nella galleria e nella pagina delle estensioni"
+  }
+}

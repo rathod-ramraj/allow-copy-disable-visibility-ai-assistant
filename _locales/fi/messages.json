@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Salli oikean painikkeen painaminen - salli kopiointi ja valinta",
+    "description": "Laajennuksen nimi, näkyy galleriassa ja laajennussivulla"
+  },
+  "desc": {
+    "message": "Ota käyttöön pikavalikot suojatuilla verkkosivustoilla. Poista oikean painikkeen valikko esto. Korosta ja salli kopiointivaihtoehto kaikilla sivuilla toimii jälleen.",
+    "description": "Laajennuksen kuvaus, näkyy galleriassa ja laajennussivulla"
+  }
+}

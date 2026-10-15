@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Atļaut labo pogas nospiešanu - atļaut kopēšanu un atlasi",
+    "description": "Paplašinājuma nosaukums, redzams galerijā un paplašinājumu lapā"
+  },
+  "desc": {
+    "message": "Iespējot konteksta izvēlnes aizsargātās vietnēs. Atbloķēt labās pogas izvēlni. Iezīmēt un atļaut kopēšanas opciju visām lapām atkal darbojas.",
+    "description": "Paplašinājuma apraksts, redzams galerijā un paplašinājumu lapā"
+  }
+}

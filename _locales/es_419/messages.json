@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Habilitar el clic derecho - permitir copiar y seleccionar",
+    "description": "El título de la extensión, visto en la galería y en la página de extensiones"
+  },
+  "desc": {
+    "message": "Habilitar menús contextuales en sitios web protegidos. Desbloquear el menú del clic derecho. Resaltar y permitir la opción de copiar para que todas las páginas funcionen nuevamente.",
+    "description": "La descripción de la extensión, vista en la galería y en la página de extensiones"
+  }
+}

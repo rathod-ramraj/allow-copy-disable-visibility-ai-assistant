@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Tillad højreklik - tillad kopiering og udvælgelse",
+    "description": "Udvidelsens titel, set i galleri og udvidelsesside"
+  },
+  "desc": {
+    "message": "Aktivér kontekstmenuer på beskyttede websteder. Oplås højreklikmenu. Fremhæv og tillad kopieringsmulighed for alle sider fungerer igen.",
+    "description": "Udvidelsens beskrivelse, set i galleri og udvidelsesside"
+  }
+}
