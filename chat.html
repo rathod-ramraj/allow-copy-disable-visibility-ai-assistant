@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Assistant</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: #18181b;
+      color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header */
+    #header {
+      height: 44px;
+      min-height: 44px;
+      background: #121214;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      user-select: none;
+    }
+
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .title-group svg {
+      width: 18px;
+      height: 18px;
+      fill: #10a37f;
+    }
+
+    .title {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .badge {
+      color: #10a37f;
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(16, 163, 127, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 163, 127, 0.25);
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: none;
+      color: #a1a1aa;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .clear-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .clear-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Messages */
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    #chat-messages::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      color: #a1a1aa;
+      font-size: 12.5px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    .welcome-card h4 {
+      color: #f4f4f5;
+      font-size: 13.5px;
+      margin-bottom: 4px;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      color: #d4d4d8;
+      font-size: 11px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .chip-btn:hover {
+      background: rgba(16, 163, 127, 0.2);
+      border-color: rgba(16, 163, 127, 0.4);
+      color: #ffffff;
+    }
+
+    .msg-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .msg-row.user {
+      justify-content: flex-end;
+    }
+
+    .msg-row.assistant {
+      justify-content: flex-start;
+    }
+
+    .msg-bubble {
+      max-width: 88%;
+      padding: 9px 13px;
+      border-radius: 13px;
+      font-size: 13px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .msg-row.user .msg-bubble {
+      background: #2563eb;
+      color: #ffffff;
+      border-bottom-right-radius: 3px;
+    }
+
+    .msg-row.assistant .msg-bubble {
+      background: #27272a;
+      color: #f4f4f5;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom-left-radius: 3px;
+    }
+
+    .msg-bubble pre {
+      background: #141416;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 8px;
+      margin: 6px 0;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 11.5px;
+      color: #38bdf8;
+    }
+
+    .msg-bubble code {
+      font-family: monospace;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-size: 11.5px;
+    }
+
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      padding: 9px 13px;
+      background: #27272a;
+      border-radius: 13px;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .typing-dot {
+      width: 5px;
+      height: 5px;
+      background: #10a37f;
+      border-radius: 50%;
+      animation: typingBounce 1.2s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* Footer */
+    #footer {
+      padding: 10px 12px;
+      background: #141416;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      background: #202024;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 7px 10px;
+    }
+
+    .input-row:focus-within {
+      border-color: #10a37f;
+    }
+
+    #prompt-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fafafa;
+      font-size: 13px;
+      line-height: 1.4;
+      resize: none;
+      max-height: 100px;
+      min-height: 18px;
+    }
+
+    #prompt-input::placeholder {
+      color: #71717a;
+    }
+
+    #send-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: #10a37f;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    #send-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    #send-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .footer-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #71717a;
+      padding: 0 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="title-group">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.2-1.31C8.6 21.49 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <span class="title">AI Assistant</span>
+      <span class="badge">GPT-4o-mini</span>
+    </div>
+    <button class="clear-btn" id="btn-clear" title="Clear chat">
+      <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+    </button>
+  </div>
+
+  <div id="chat-messages">
+    <div class="welcome-card" id="welcome-card">
+      <h4>👋 AI Assistant Ready</h4>
+      <p>Ask anything while browsing. Lightweight & standalone.</p>
+      <div class="chips-row">
+        <button class="chip-btn" data-prompt="Summarize this topic">Summarize</button>
+        <button class="chip-btn" data-prompt="Explain this simply">Explain simply</button>
+        <button class="chip-btn" data-prompt="Write a professional message">Write message</button>
+      </div>
+    </div>
+    <div class="typing-indicator" id="typing-indicator">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="input-row">
+      <textarea id="prompt-input" rows="1" placeholder="Type a message... (Enter to send)"></textarea>
+      <button id="send-btn" title="Send message">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+    <div class="footer-sub">
+      <span>Shift+Enter for newline</span>
+      <span>No login required</span>
+    </div>
+  </div>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>

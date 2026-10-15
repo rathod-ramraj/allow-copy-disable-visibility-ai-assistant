@@ -12,6 +12,13 @@ A Manifest V3 Chrome Extension that bypasses website restrictions on text select
 - **Two Operation Modes**:
   - **Standard Mode (Enable Copy)**: Balanced approach suitable for most websites.
   - **Absolute Mode**: Aggressive interception designed for heavily protected pages (e.g., test portals, DRM readers).
+- **AI Assistant (Powered by OpenAI GPT-4o-mini)**:
+  - **Zero Login / API Key Required**: Instant answers out of the box with zero setup.
+  - **Native Built-in Interface**: Clean dark-mode UI with no third-party iframes to avoid login loops or blocked buttons.
+  - **Subtle Transparent Launcher**: Faint, non-intrusive floating button that becomes fully visible on hover.
+  - **Fullscreen Compatible**: Automatically attaches to `document.fullscreenElement` to stay on top in full-screen mode (videos, canvas, exams).
+  - **Standalone Small Window**: Can be popped out into an independent floating desktop window.
+  - **Quick Shortcut**: Press `Alt + C` (or `Option + C` on Mac) anywhere.
 
 ---
 
@@ -52,16 +59,18 @@ Websites typically restrict user interactions using two layers:
 
 ```text
 ├── manifest.json         # Extension manifest (Manifest V3 configuration)
-├── popup.html            # UI popup for toggling modes
-├── popup.js              # Controls mode toggles and sends messages to background/worker
+├── popup.html            # UI popup for toggling modes & launching AI
+├── popup.js              # Controls mode toggles and sends messages
+├── chat.html             # Standalone small window AI chat interface
 ├── options.html          # Extension options and settings page
 ├── options.js            # Settings page logic
 ├── css/
 │   ├── popup.css         # Popup styles
 │   └── options.css       # Options page styles
 ├── js/
-│   ├── background.js     # Background Service Worker (manages tab state & injection)
-│   ├── content.js        # Content script entry point
+│   ├── background.js     # Service Worker (tab state & AI query background proxy)
+│   ├── content.js        # Injects transparent launcher & floating AI chat overlay
+│   ├── chat.js           # Logic for standalone small chat window
 │   └── inject/
 │       ├── inj_1.js      # Script for Standard "Enable Copy" mode
 │       └── inj_2.js      # Script for "Absolute Mode"

@@ -1,43 +1,56 @@
 <!doctype html>
 <html>
-  <head lang="en">
-    <meta charset="UTF-8" />
-    <title>Unblock Right Click</title>
-    <link rel="stylesheet" type="text/css" href="./css/popup.css" />
-  </head>
-  <body>
-    <div class="content">
-      <div class="title-bar" id="title-bar">
-        <img src="./icons/icon-48.png" alt="Unblock Right Click & Copy" />
-        <p class="title">Unblock Right Click & Copy</p>
-      </div>
 
-      <div class="state">
-        <span>Not Enabled</span>
-      </div>
+<head lang="en">
+  <meta charset="UTF-8" />
+  <title>Unblock Right Click</title>
+  <link rel="stylesheet" type="text/css" href="./css/popup.css" />
+</head>
 
-      <div class="enable-copy mid-container">
-        <span class="mode-text">Enable Copy</span>
-        <img class="check-image" src="icons/icon-off.png" />
-      </div>
+<body>
+  <div class="content">
+    <div class="title-bar" id="title-bar">
+      <img src="./icons/icon-48.png" alt="Unblock Right Click & Copy" />
+      <p class="title">Unblock Right Click & Copy</p>
+    </div>
 
-      <div class="abs-mode mid-container">
-        <span class="mode-text">Unblock Mode</span>
-        <img class="check-image" src="icons/icon-off.png" />
-      </div>
+    <div class="state">
+      <span>Not Enabled</span>
+    </div>
 
-      <div class="description">
-        <div class="reload" title="Reload to apply changes">
-          <img src="icons/icon-reload.png" />
-        </div>
-      </div>
+    <div class="enable-copy mid-container">
+      <span class="mode-text">Enable Copy</span>
+      <img class="check-image" src="icons/icon-off.png" />
+    </div>
 
-      <div class="footer">
-        <span class="version"></span>
-        <span class="settings" title="Settings"></span>
+    <div class="abs-mode mid-container">
+      <span class="mode-text">Unblock Mode</span>
+      <img class="check-image" src="icons/icon-off.png" />
+    </div>
+
+    <div class="chatgpt-btn mid-container" id="chatgpt-btn">
+      <span class="mode-text">AI Chat (In-Page)</span>
+      <span style="font-size: 11px; color: #10a37f; font-weight: 600;" id="inpage-shortcut">Alt+C</span>
+    </div>
+
+    <div class="small-window-btn mid-container" id="small-window-btn">
+      <span class="mode-text">AI Small Window</span>
+      <span style="font-size: 11px; color: #38bdf8; font-weight: 600;">Open ↗</span>
+    </div>
+
+    <div class="description">
+      <div class="reload" title="Reload to apply changes">
+        <img src="icons/icon-reload.png" />
       </div>
     </div>
 
-    <script type="text/javascript" src="./js/popup.js"></script>
-  </body>
+    <div class="footer">
+      <span class="version"></span>
+      <span class="settings" title="Settings"></span>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./js/popup.js"></script>
+</body>
+
 </html>
