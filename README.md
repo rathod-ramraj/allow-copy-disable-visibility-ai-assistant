@@ -1,6 +1,6 @@
-# Allow Copy & Enable Right Click - Chrome Extension
+# Allow Copy, Disable Page Visibility & AI Assistant (`allow-copy-disable-visibility-ai-assistant`)
 
-A Manifest V3 Chrome Extension that bypasses website restrictions on text selection, right-click context menus, and copy/paste functionality.
+A Manifest V3 Chrome Extension that re-enables copy/paste and right-click menus, disables page visibility & blur tracking (anti-tab-switch detection), and provides a built-in floating AI assistant powered by OpenAI GPT-4o-mini.
 
 ---
 
@@ -9,6 +9,7 @@ A Manifest V3 Chrome Extension that bypasses website restrictions on text select
 - **Re-enable Text Selection**: Overrides CSS styles that disable user selection (`user-select: none`).
 - **Unblock Context Menu**: Restores native right-click context menu functionality.
 - **Enable Copy & Paste**: Prevents webpages from intercepting and blocking clipboard operations (`copy`, `cut`, `paste`).
+- **Disable Page Visibility**: Bypasses tab switching and blur detection (`visibilitychange`, `blur`, `focus`) by overriding `document.hidden` and spoofing continuous page focus (great for proctored tests, timers, and inactive tab pausing).
 - **Two Operation Modes**:
   - **Standard Mode (Enable Copy)**: Balanced approach suitable for most websites.
   - **Absolute Mode**: Aggressive interception designed for heavily protected pages (e.g., test portals, DRM readers).
@@ -51,7 +52,12 @@ Websites typically restrict user interactions using two layers:
   - `contextmenu`, `copy`, `cut`, `paste`
   - `mouseup`, `mousedown`, `keyup`, `keydown`
   - `drag`, `dragstart`, `select`, `selectstart`
-- Calls `stopPropagation()` immediately, completely preventing host page JavaScript from capturing or suppressing user actions.
+### 3. Disable Page Visibility (`inj_3.js`)
+- Stops event propagation for `visibilitychange`, `webkitvisibilitychange`, `blur`, `focus`, and `mouseleave`.
+- Overrides `Document.prototype.hidden` and `webkitHidden` to always return `false`.
+- Overrides `Document.prototype.visibilityState` and `webkitVisibilityState` to always return `"visible"`.
+- Spoofs `Document.prototype.hasFocus()` to continuously return `true`.
+- Nullifies inline event handlers (`window.onblur`, `window.onfocus`, `document.onvisibilitychange`).
 
 ---
 
@@ -73,7 +79,8 @@ Websites typically restrict user interactions using two layers:
 │   ├── chat.js           # Logic for standalone small chat window
 │   └── inject/
 │       ├── inj_1.js      # Script for Standard "Enable Copy" mode
-│       └── inj_2.js      # Script for "Absolute Mode"
+│       ├── inj_2.js      # Script for "Absolute Mode"
+│       └── inj_3.js      # Script for "Disable Page Visibility" mode
 └── icons/                # Extension toolbar and status icons
 ```
 

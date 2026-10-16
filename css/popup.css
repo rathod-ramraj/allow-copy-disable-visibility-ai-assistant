@@ -170,12 +170,14 @@ img {
 }
 
 .enable-copy:hover,
-.abs-mode:hover {
+.abs-mode:hover,
+.disable-visibility:hover {
   background: #ece9e3;
 }
 
 .enable-copy:active,
-.abs-mode:active {
+.abs-mode:active,
+.disable-visibility:active {
   background: #e4e1d9;
 }
 
