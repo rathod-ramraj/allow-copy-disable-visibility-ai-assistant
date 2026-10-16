@@ -48,8 +48,8 @@
 
       #ai-launcher:hover {
         opacity: 0.85;
-        border-color: rgba(16, 163, 127, 0.6);
-        box-shadow: 0 0 18px rgba(16, 163, 127, 0.55), 0 0 32px rgba(16, 163, 127, 0.25);
+        border-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
       }
 
       #ai-launcher:active {
@@ -64,7 +64,7 @@
       }
 
       #ai-launcher:hover svg {
-        fill: #10a37f;
+        fill: #ffffff;
       }
 
       /* Floating Chat Window - Default Compact Small Size */
